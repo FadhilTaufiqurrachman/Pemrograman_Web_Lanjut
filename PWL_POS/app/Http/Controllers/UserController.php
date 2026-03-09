@@ -23,10 +23,19 @@ class UserController extends Controller
         // ];
         // UserModel::insert($data); // Tambahkan Data Ke Tabel m_user
 
+        // $data = [
+        //     'nama' => 'Pelanggan Pertama',
+        // ];
+        // UserModel::where('username', 'customer-1')->update($data); // Update Data User
+
+        // Tambah Data User Dengan Eloquent Model
         $data = [
-            'nama' => 'Pelanggan Pertama',
+            'level_id' => 2,
+            'username' => 'manager_tiga',
+            'nama' => 'Manager 3',
+            'password' => Hash::make('12345')
         ];
-        UserModel::where('username', 'customer-1')->update($data); // Update Data User
+        UserModel::create($data); //Error Karena Pada User Model Tidak Ada 'password'
 
         // Coba Akses Model UserModel
         $user = UserModel::all(); // Ambil Semua Data Dari Tabel m_user
